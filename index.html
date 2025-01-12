@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Of H.A. Sadhin</title>
+  <style>
+    body {
+      background-color: #e9e8e6;
+      overflow: hidden; 
+    }
+
+    .table {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      bottom: 15%;
+
+    }
+
+    /* Table Top */
+    .table-top {
+      width: 425px;
+      height: 100px;
+      background-color: #d4d2d3; /* Brown color for the table top */
+      border-radius: 50%;
+      box-shadow: 0 30px 0 #a19fa0; /* 3D depth shadow */
+      top: 10px;
+      z-index: 5;
+    }
+
+    .tableshadow {
+      width: 420px;
+      height: 40px;
+      background-color: #a19fa0; /* Shadow color for the table */
+      z-index: 4;
+      position: absolute;
+      border-radius: 15%;
+      top: 37px;
+      box-shadow: 0 10px 10px #cccbcb;
+    }
+
+    /* Table Leg */
+    .table-leg {
+      position: absolute;
+      top: 60px;
+      width: 200px;
+      height: 90px;
+      background-color: #999999; /* Gray color for the leg */
+      border-radius: 10px;
+      z-index: 4;
+    }
+
+    .tableleg1 {
+      position: absolute;
+      top: 60px;
+      width: 100px;
+      height: 250px;
+      background-color: #8e8c8c; /* Gray color for the leg */
+      border-radius: 10px;
+      z-index: 3;
+    }
+
+    .tableleg2 {
+      position: absolute;
+      top: 300px;
+      width: 250px;
+      height: 50px;
+      background-color: #8e8c8c; /* Gray color for the leg */
+      border-radius: 10px;
+      z-index: 3;
+      box-shadow: 0 10px 0 #cccbcb;
+    }
+
+    .tableleg3 {
+      position: absolute;
+      top: 300px;
+      width: 70px;
+      height: 80px;
+      background-color: #8e8c8c; /* Gray color for the leg */
+      border-radius: 10px;
+      z-index: 3;
+      box-shadow: 0 10px 0 #cccbcb;
+    }
+
+    .floor {
+      position: absolute;
+      top: 60%;
+      width: 100%;
+      height: 100%;
+      background-color: #dedcdc;
+      z-index: 2;
+    }
+
+    .wall {
+      display: flex;
+      position: absolute;
+      text-align: center;
+   
+      font-size: 3vw;
+      padding-left: 20vw;
+      color: white;
+      text-shadow: 4px 4px 5px rgba(0, 0, 0, 0.8);
+    }
+
+    .book {
+      height: 85px;
+      width: auto;
+      position: absolute;
+      display: flex;
+      padding-left: 250px;
+      transition: transform 0.3s ease;
+      z-index: 2;
+    }
+
+    /* Hover Effect */
+    .book:hover {
+      transform: scale(1.1); /* Smooth zoom */
+    }
+
+    .holder {
+      height: 90px;
+      width: auto;
+      position: absolute;
+      padding-left: 100px;
+      transition: transform 0.3s ease;
+      z-index: 2;
+    }
+
+    /* Hover Effect */
+    .holder:hover {
+      transform: scale(1.1); /* Smooth zoom */
+    }
+
+    .tree {
+      height: 280px;
+      width: auto;
+      position: absolute;
+      bottom: 100px;
+      padding-left: 3vw;
+      transition: transform 0.3s ease;
+      z-index: 1;
+    }
+
+    /* Hover Effect */
+    .tree:hover {
+      transform: scale(1.1); /* Smooth zoom */
+    }
+  </style>
+</head>
+<body>
+  <div class="room">
+    <div class="wall">
+      <h1>Hossain Ahmed Sadhin</h1>
+    </div>
+    <div class="floor">
+      <div class="table">
+        <div class="table-top">
+          <a href="about.html">
+            <img 
+              src="images/bookh.png" 
+              class="book" 
+              alt="Book" 
+              onmouseover="this.src='images/bookh.png'" 
+              onmouseout="this.src='images/bookh.png'">
+          </a>
+          <a href="contact.html">
+            <img 
+              src="images/cardholder.png" 
+              class="holder" 
+              alt="holder" 
+              onmouseover="this.src='images/cardholder.png'" 
+              onmouseout="this.src='images/cardholder.png'">
+          </a>
+
+          <a href="project.html">
+            <img 
+              src="images/tree.png" 
+              class="tree" 
+              alt="tree" 
+              onmouseover="this.src='images/tree.png'" 
+              onmouseout="this.src='images/tree.png'">
+          </a>
+        </div>
+        <div class="tableshadow"></div>
+        <div class="table-side"></div>
+        <div class="table-leg"></div>
+        <div class="tableleg1"></div>
+        <div class="tableleg2"></div>
+        <div class="tableleg3"></div>  
+      </div>
+    </div>
+  </div>
+</body>
+</html>

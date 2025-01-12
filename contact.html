@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #eddab6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            width: 100px;
+            height: 150px;
+            margin: 30px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            border: 5px solid #ddd;
+            border-radius: 50px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .card img.default-img {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: opacity 0.3s ease-in-out;
+            border-radius: 50px;
+        }
+
+        .card img.hover-img {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+            border-radius: 50px;
+        }
+
+        .card:hover img.default-img {
+            opacity: 0;
+        }
+
+        .card:hover img.hover-img {
+            opacity: 1;
+        }
+
+        .card:hover {
+            transform: scale(1.2);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .hover-text {
+            position: absolute;
+            bottom: -30px;
+            font-size: 14px;
+            color: #333;
+            font-weight: bold;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .card:hover .hover-text {
+            opacity: 1;
+        }
+
+        .map-container {
+            position: relative;
+            width: 416px;
+            height: 250px;
+            margin: 0 10px;
+        }
+
+        .map-container iframe {
+            border: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50px;
+            overflow: hidden;
+        }
+
+        .location-line {
+            position: absolute;
+            top: -30px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 5px 10px;
+            border-radius: 20px;
+        }
+
+        .location-line span {
+            color: #333;
+        }
+
+        .location-line span:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card" onclick="window.open('https://www.linkedin.com/in/hossain-ahmed-sadhin/', '_blank')">
+            <img src="images/linkedin logo.png" alt="LinkedIn" class="default-img">
+            <img src="images/linkedin.jpg" alt="LinkedIn Hover" class="hover-img">
+            <div class="hover-text">LinkedIn</div>
+        </div>
+        <div class="card" onclick="window.open('https://www.facebook.com/hussain.ahmedsadhin/', '_blank')">
+            <img src="images/facebook logo.png" alt="Facebook" class="default-img">
+            <img src="images/facebook.jpg" alt="Facebook Hover" class="hover-img">
+            <div class="hover-text">Facebook</div>
+        </div>
+
+        <div class="map-container">
+            <div class="location-line">
+                <span>Bangladesh</span> > <span>Dhaka</span> > <span>Keraniganj</span>
+            </div>
+            <iframe 
+                src="https://maps.google.com/maps?q=Keraniganj,%20Bangladesh&z=15&output=embed" 
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <div class="card" onclick="window.open('https://www.instagram.com/hussainahmedsadhin/', '_blank')">
+            <img src="images/instagramlogo.png" alt="Instagram" class="default-img">
+            <img src="images/instagram.jpg" alt="Instagram Hover" class="hover-img">
+            <div class="hover-text">Instagram</div>
+        </div>
+        <div class="card" onclick="window.open('mailto:hossain.ahmed.sadhin.job@gmail.com', '_blank')">
+            <img src="images/email logo.png" alt="Email" class="default-img">
+            <img src="images/email-hover.png" alt="Email Hover" class="hover-img">
+            <div class="hover-text">Email</div>
+        </div>
+    </div>
+</body>
+</html>

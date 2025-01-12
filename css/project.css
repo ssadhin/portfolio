@@ -1,0 +1,239 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #fefefe;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    overflow: auto;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.project-container {
+    max-width: 700px;
+    margin: auto;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 20px;
+    text-align: center;
+}
+
+
+
+.project-header img {
+    width: 48%;
+    margin: 1%;
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.project-header h2 {
+    font-size: 22px;
+    color: #222;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+.project-details {
+    text-align: left;
+    margin-top: 15px;
+}
+
+.project-details table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.project-details td {
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.project-details th {
+    text-align: left;
+    color: #666;
+    padding: 10px 0;
+    font-weight: 500;
+}
+
+.project-actions a {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 20px;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.project-actions .download-link {
+    background-color: #1abc9c;
+}
+
+.project-actions .download-link:hover {
+    background-color: #16a085;
+}
+
+.project-actions .project-link {
+    background-color: #3498db;
+}
+
+.project-actions .project-link:hover {
+    background-color: #2980b9;
+}
+
+.button {
+    background-color: #7ec2ef;
+    padding: 10px 20px;
+    color: #fff;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    height: 1vh;
+    width: auto;
+}
+
+.overlay,
+.hover-panel,
+.navigation {
+    pointer-events: none;
+}
+
+.overlay.active,
+.hover-panel.active {
+    pointer-events: auto; /* Allow interaction only when active */
+}
+
+
+
+.overlay-image {
+    position: absolute;
+    width: 9%;
+    height: auto;
+    cursor: pointer;
+}
+
+.overlay-image:nth-child(1) {
+    left: 1.5%;
+    bottom: 25%;
+}
+
+.overlay-image:nth-child(2) {
+    left: 23.5%;
+    bottom: 15%;
+}
+
+.overlay-image:nth-child(3) {
+    left: 53.3%;
+    bottom: 10%;
+}
+
+.overlay-image:nth-child(4) {
+    left: 46%;
+    bottom: 42%;
+}
+
+.overlay-image:nth-child(5) {
+    left: 78.5%;
+    bottom: 36%;
+}
+
+.hover-panel {
+    display: none;
+    position: absolute;
+    background-color: white;
+    padding: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    z-index: 10;
+}
+
+.hover-panel img {
+    max-width: 100px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.hover-panel p {
+    font-size: 14px;
+    color: #333;
+}
+
+.click-panel {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0;
+    background-color: white;
+    width: 60vw;
+    height: 70vh;
+    padding: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    z-index: 20;
+    overflow: auto;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    pointer-events: none; /* Default non-interactive */
+}
+
+.click-panel.active {
+    display: block;
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+    pointer-events: auto; /* Enable interaction when active */
+}
+
+.click-panel .sections {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.click-panel .section {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.click-panel .section.active {
+    display: flex;
+}
+
+.click-panel img {
+    max-width: 200px;
+    margin-bottom: 20px;
+}
+
+.click-panel p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.click-panel a {
+    color: blue;
+    text-decoration: underline;
+    pointer-events: auto; /* Ensure links are clickable */
+}
+
+
+
+
+
+.overlay.active {
+    display: block;
+    opacity: 1;
+    pointer-events: auto; /* Allow interaction when active */
+}

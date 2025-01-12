@@ -1,0 +1,246 @@
+* { box-sizing: border-box; }
+
+body {
+  /* or any other parent wrapper */
+  margin: 0;
+  display: flex;
+  min-height: 100dvh;
+  perspective: 1000px;
+  font: 1em/1.4 "Poppins", sans-serif;
+  overflow: hidden;
+  color: hsl(180 68% 5%);
+  background-image: radial-gradient(circle farthest-corner at 50% 50%, hsl(187 20% 88%) 30%, hsl(149 20% 94%) 100%);
+}
+
+.book {
+  position: relative;
+  display: flex;
+  margin: auto;
+  width: 45cqmin;
+  /*1* let pointer event go trough pages of lower Z than .book */
+  height: 70cqmin;
+  pointer-events: none;
+  transform-style: preserve-3d;
+  transition: translate 1s;
+  translate: calc(min(var(--c), 1) * 50%) 0%;
+  rotate: 1 0 0 30deg;
+}
+.abt{
+  text-align: center;
+  font-size: 0.8em;
+  background-color: #dbdbdb;
+  border-radius: 10%;
+  width: 90%;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  
+}
+.abt:hover{
+  background-color: #f0f0f0;
+  color: #000;
+}
+.abt-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 3 columns */
+  grid-gap: 5%; /* Gap between boxes */
+  justify-items: center; /* Center the content horizontally */
+  align-items: center; /* Center the content vertically */
+  
+}
+
+
+/*education and experience styles*/
+/* Parent container for certificates */
+.certificate-container {
+  position: relative;
+  width: 18vw;
+  height: 11vh;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.certificate-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(1px); /* Always blurred */
+  border-radius: 10px;
+  transition: filter 0.3s ease;
+}
+
+.certificate-container:hover .certificate-image {
+  filter: blur(0.8px); /* Slightly sharper on hover */
+}
+
+.certificate-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex; /* Flexbox for centering */
+  flex-direction: column; /* Align text in a column */
+  justify-content: center; /* Centers vertically */
+  align-items: center; /* Centers horizontally */
+  text-align: center; /* Ensures text alignment */
+  padding: 10px; /* Prevents text from overflowing */
+  gap: 5px; /* Adjust space between lines */
+  background: rgba(0, 0, 0, 0.3); /* Optional overlay color */
+}
+
+.certificate-text {
+  font-size: 0.9em;
+  color: #fff;
+  margin: 0;
+}
+
+.sub-text {
+  font-size:0.8em;
+  color: #ddd;
+  margin: 0;
+}
+
+.hover-text {
+  font-size: 0.7em;
+  color: #430909;
+  opacity: 0; /* Hidden by default */
+  margin: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  text-shadow: #6f6f6f 0 8px 0;
+}
+
+.certificate-container:hover .hover-text {
+  opacity: 1; /* Visible on hover */
+  transform: translateY(-5px); /* Float up effect */
+}
+
+
+
+
+
+
+.page {
+  /* PS: Don't go below thickness 0.5 or the pages might transpare */
+  --thickness: 4;
+  flex: none;
+  display: flex;
+  width: 100%;
+  font-size: 2cqmin;
+  /*1* allow pointer events on pages */
+  pointer-events: all;
+  user-select: none;
+  transform-style: preserve-3d;
+  transform-origin: left center;
+  transition:
+    transform 1s,
+    rotate 1s ease-in calc((min(var(--i), var(--c)) - max(var(--i), var(--c))) * 50ms);
+  translate: calc(var(--i) * -100%) 0px 0px;
+  transform: translateZ( calc((var(--c) - var(--i) - 0.5) * calc(var(--thickness) * .23cqmin)));
+  rotate: 0 1 0 calc(clamp(0, var(--c) - var(--i), 1) * -180deg);
+}
+
+.front,
+.back {
+  position: relative;
+  flex: none;
+  width: 100%;
+  backface-visibility: hidden;
+  overflow: hidden;
+  background-color: #fff;
+  /* Fix backface visibility Firefox: */
+  translate: 0px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.back {
+  translate: -100% 0;
+  rotate: 0 1 0 180deg;
+}
+
+
+/* That's it. Your FlipBook customization styles: */
+
+.book {
+  counter-reset: page -1;
+  & a {
+    color: inherit;
+  }
+}
+
+.page {
+  box-shadow: 0em .5em 1em -.2em #00000020;
+}
+
+
+.front,
+.back {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-between;
+  padding: 2em;
+  border: 1px solid #0002;
+  
+  &:has(img) {
+    padding: 0;
+  }
+  
+ 
+  
+  &::after {
+    position: absolute;
+    bottom: 1em;
+    counter-increment: page;
+    content: counter(page) ".";
+    font-size: 0.8em;
+  }
+}
+.cover {
+  &::after {
+    content: "";
+  }
+}
+.front {
+  &::after {
+    right: 1em;
+  }
+  background: linear-gradient(to left, #f7f7f7 80%, #eee 100%);
+  border-radius: .1em .5em .5em .1em;
+  
+}
+.back {
+  &::after {
+    left: 1em;
+  }
+  background-image: linear-gradient(to right, #f7f7f7 80%, #eee 100%);
+  border-radius: .5em .1em .1em .5em;
+}
+.front.cover .cvi1 {
+  width: 90% !important; /* Adjust the width as needed */
+  height: auto !important; /* Maintain aspect ratio */
+  position: absolute; /* Position the image absolutely */
+  top: 50%; /* Adjust the top position as needed */
+  left: 50%; /* Adjust the left position as needed */
+  transform: translate(-50%, -50%); /* Center the image */
+  
+}
+.front.cover {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  height: 100%; /* Ensure it takes the full height of the parent */
+  background: radial-gradient(circle farthest-corner at 80% 20%, hsl(150 80% 20% / .3) 0%, hsl(170 60% 10% / .1) 100%),
+  hsl(0, 0%, 78%) url("images/abh.png") 50% / cover;
+  color: hsl(200 30% 98%);
+  text-shadow: #6f6f6f 0 5px 0;
+}
+
+
+.cover {
+  background: radial-gradient(circle farthest-corner at 80% 20%, hsl(150 80% 20% / .3) 0%, hsl(170 60% 10% / .1) 100%),
+  hsl(0, 0%, 78%) url("") 50% / cover;
+  color: hsl(200 30% 98%);
+  
+}
